@@ -1,5 +1,6 @@
 package com.jlxu.demo.demo;
 
+import com.jlxu.demo.model.TRegion;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,5 +48,25 @@ public class DemoTest {
     //导包错误：把org.junit.jupiter.api.Test换成org.junit.Test即可
 
 
+    //2020-2-4
+    //字节码是怎么样的？
+    @Test
+    public void test3() {
+        TRegion tRegion = new TRegion();
+        Class<?> aClass1 = null;
+        try {
+            aClass1 = Class.forName("com.jlxu.demo.model.TRegion");
+        } catch (ClassNotFoundException e) {
+            log.error("区域类的全路径不存在");
+            e.printStackTrace();
+        }
+        Class<?> aClass = tRegion.getClass();
+        Class<TRegion> tRegionClass = TRegion.class;
+        //打印字节码
+        log.debug("第一种====>Class类的forName方法获取区域类的字节码：{}", aClass1);//class com.jlxu.demo.model.TRegion
+        log.debug("第二种====>对象的getClass方法获取区域类的字节码：{}", aClass);//class com.jlxu.demo.model.TRegion
+        log.debug("第三种====>类的class属性获取区域类的字节码：{}", tRegionClass);//class com.jlxu.demo.model.TRegion
+        //PS:通过和反射有关    如Spring框架中bean的加载    泛型中的？：通配符
+    }
 
 }
