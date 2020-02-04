@@ -1,5 +1,7 @@
 package com.jlxu.demo.demo;
 
+import com.jlxu.demo.classinit.A;
+import com.jlxu.demo.classinit.B;
 import com.jlxu.demo.model.TRegion;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -81,6 +83,14 @@ public class DemoTest {
         log.debug("第三种（演变）：{}", "dddd" + "\r" + "ddd");//ddd
         log.debug("第四种：{}", "ddddd\\sddd");//ddddd\sddd
         //PS：自己理解的换行和回车和实际不一样    实际：回车变成两行了（见第二种）；换行变成只显示第二行
+    }
+
+    //new对象触发的初始化会加载那个东西  PS:其他这个东西已经学习了，但是学习的不够
+    @Test
+    public void test5() {
+        B b = new B();
+        //TODO:PS：参考：https://blog.csdn.net/justloveyou_/article/details/72466416以及https://blog.csdn.net/justloveyou_/article/details/72466105
+        //PS:通过端点可以知道new的时候会触发类的初始化，先触发父类再触发子类
     }
 
 }
