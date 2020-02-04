@@ -69,4 +69,20 @@ public class DemoTest {
         //PS:通过和反射有关    如Spring框架中bean的加载    泛型中的？：通配符
     }
 
+    //java特殊符号组合的含义
+    //    \t  \n    \r   \\s
+    @Test
+    public void test4() {
+        log.debug("第一种：{}", "ddddd\tddd");//ddddd	ddd  相当于tab（缩进）
+//        log.debug("第二种：{}", "ddddd\nddd");
+        //第二种：ddddd
+        //ddd
+        log.debug("第三种：{}", "ddddd\rddd");//ddd
+        log.debug("第三种（演变）：{}", "dddd" + "\r" + "ddd");//ddd
+        log.debug("第四种：{}", "ddddd\\sddd");//ddddd\sddd
+        //PS：自己理解的换行和回车和实际不一样    实际：回车变成两行了（见第二种）；换行变成只显示第二行
+    }
+
 }
+
+
