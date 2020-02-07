@@ -1,5 +1,6 @@
 package com.jlxu.demo.demo;
 
+import com.alibaba.fastjson.JSONObject;
 import com.jlxu.demo.classinit.A;
 import com.jlxu.demo.classinit.B;
 import com.jlxu.demo.model.TRegion;
@@ -91,6 +92,23 @@ public class DemoTest {
         B b = new B();
         //TODO:PS：参考：https://blog.csdn.net/justloveyou_/article/details/72466416以及https://blog.csdn.net/justloveyou_/article/details/72466105
         //PS:通过端点可以知道new的时候会触发类的初始化，先触发父类再触发子类
+    }
+
+    //String的toString方法参数可以空字符串吗？
+    // toJSONString(Object object)的参数可以是任何对象吗？
+    // static <T> T parseObject(String text, Class<T> clazz)的第一个参数有什么要求吗？
+    @Test
+    public void Test6() {
+        String s = "".toString();//看下源码就行了
+        String s1 = JSONObject.toJSONString("sddd");//参数为Object就行
+        String ss = JSONObject.parseObject("ss", String.class);//第一个参数必须是json格式的String类型  com.alibaba.fastjson.JSONException: syntax error, pos 1, line 1, column 2ss
+        log.debug(s1);
+        log.debug(ss);
+        //PS:问题1，2看源码可知；问题3参数必须是json格式的字符串
+        //json格式是怎么样的呢？简单的json格式如下
+        // ====>{"parkName":"友地产业园","name":"lbj","tel":"18234566543","id":2,"alg":"HS256","account":"18234566543","parkId":24,"isSys":false}
+        //即类似map结构    key用“”包起来   ：连接value的值
+
     }
 
 }
