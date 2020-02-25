@@ -111,6 +111,30 @@ public class DemoTest {
 
     }
 
+
+    //final关键字重学    把之前学的还给自己了（老师）
+    //private final char c;//Variable 'c' might not have been initialized  TODO:不会初始化？
+    private final char c2 = 'a';
+    private final int c = 3;
+
+    @Test
+    public void test7() {
+
+        //基本类型
+        //c=4;//Cannot assign a value to final variable 'c'
+
+        //引用类型
+        final TRegion tRegion;
+        tRegion = new TRegion();
+        //tRegion=new TRegion();//Variable 'tRegion' might already have been assigned to  //引用类型
+        tRegion.setId(12);
+        log.debug("地址值：{}", tRegion);
+
+        tRegion.setId(15);
+        log.debug("地址值：{}", tRegion);
+
+    }
+
 }
 
 

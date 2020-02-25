@@ -1,7 +1,6 @@
 package com.jlxu.demo.jwt;
 
-import com.jlxu.demo.jwt.utils.JwtUtil;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
