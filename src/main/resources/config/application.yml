@@ -1,7 +1,10 @@
 server:
-  port: 9302
   servlet:
     context-path: /demo
+
+spring:
+  profiles:
+    active: dev
 
 rocket:
   host: 61.174.54.126
