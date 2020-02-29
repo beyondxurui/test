@@ -26,5 +26,10 @@ public class Game {
         goalNotifierThread.start();
         Thread.sleep(3000);
         goalNotifier.setFlag(true);
+        //补充：
+        // 首先要解决的问题是，不加volatile之前，main函数明明调用了setGoal()方法，把goal改成了true，可为什么GoalNotifier线程里的goal还是false？
+        //答案是，“主线程”里调用setGoal()方法修改的goal，和GoalNotifier线程里的goal，是两个副本。
+        //What??? 变量还有副本？
+
     }
 }
