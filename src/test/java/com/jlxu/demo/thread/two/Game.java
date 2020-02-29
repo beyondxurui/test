@@ -1,4 +1,4 @@
-package com.jlxu.demo.thread;
+package com.jlxu.demo.thread.two;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
