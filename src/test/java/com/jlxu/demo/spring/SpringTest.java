@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 /**
  * 功能:jvm内存模型 常量测试，字符串定义测试 String 的不可变性测试  String对象创建方式 https://blog.csdn.net/justloveyou_/article/details/52556427
  * 创建时间：2020年03月02日
- * 文件名称：constantTest
+ * 文件名称：SpringTest
  * 版本：1.0.0
  * 最后修改时间：2020/3/2 22:18
  *
@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @Slf4j
-public class constantTest {
+public class SpringTest {
 
     //常量测试
     @Test
