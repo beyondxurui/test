@@ -1,4 +1,4 @@
-package com.jlxu.demo.hash.hashmap;
+package com.jlxu.demo.map.hashmap;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
