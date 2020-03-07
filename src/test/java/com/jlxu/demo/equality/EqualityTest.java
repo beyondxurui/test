@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -84,7 +83,7 @@ public class EqualityTest {
         hashMap.forEach((k, v) -> {
             log.info("k,v==>{},{}", k.toString(), v.toString());
         });
-        //k,v==>Person{name='ad', age=23},Person{name='ad', age=23}  只有一个
+        //k,v==>Person5{name='ad', age=23},Person5{name='ad', age=23}  只有一个
         // TODO:why?  因为HashMap底层key（这里的Person对象）的唯一性通过hashCode和equals确定改地，因为Person（默认继承Object）没重写hashCode和equals,所以相等
 
         //案例二(重写equals和不重写hashCode)
@@ -98,7 +97,7 @@ public class EqualityTest {
         hashMap2.forEach((k, v) -> {
             log.info("k2,v2==>{},{}", k.toString(), v.toString());
         });
-        //k2,v2==>Person{name='ad', age=23},Person{name='ad', age=23}   只有一个
+        //k2,v2==>Person5{name='ad', age=23},Person5{name='ad', age=23}   只有一个
         //ps:基本同上
 
 
@@ -114,8 +113,8 @@ public class EqualityTest {
         hashMap3.forEach((k, v) -> {
             log.info("k3,v3==>{},{}", k.toString(), v.toString());
         });
-        //k3,v3==>Person{name='ad', age=23},Person{name='ad', age=23}
-        //k3,v3==>Person{name='ad', age=23},Person{name='ad', age=23}
+        //k3,v3==>Person5{name='ad', age=23},Person5{name='ad', age=23}
+        //k3,v3==>Person5{name='ad', age=23},Person5{name='ad', age=23}
         //两个一样的？ TODO:说明存的是引用
 
         //案例四（不重写equals和重写hashCode）
@@ -130,12 +129,26 @@ public class EqualityTest {
         hashMap4.forEach((k, v) -> {
             log.info("k4,v4==>{},{}", k.toString(), v.toString());
         });
-        //k4,v4==>Person{name='ad', age=23},Person{name='ad', age=23}
-        //k4,v4==>Person{name='ad', age=23},Person{name='ad', age=23}
+        //k4,v4==>Person5{name='ad', age=23},Person5{name='ad', age=23}
+        //k4,v4==>Person5{name='ad', age=23},Person5{name='ad', age=23}
         //两个一样的？TODO:说明存的是引用
 
         //String重写了hashCode和equals方法不用重写了
         //Java 中 HashSet, HashMap 和 Hashtable TODO:的equals和hashCode是否重写看 https://blog.csdn.net/xlgen157387/article/details/88087963
         //TODO: Set 存储的是不重复的对象，依据 hashCode 和 equals 进行判断 所以都要重写
+    }
+
+
+    //测试两个=一起使用什么意思  测试原因：LinkedHashMap源码中有这样的使用  栗子:   Entry<K,V> e = lastReturned = nextEntry;
+    @Test
+    public void test() {
+        Person5 person2 = new Person5("ee1");
+        Person5 person3 = new Person5("ee");
+        Person5 p0 = person2 = person3;
+        log.info("p0===>{}", p0);//p0===>Person5(name=ee)
+        log.info("person2===>{}", person2);// person2===>Person5(name=ee)
+        log.info("person3===>{}", person3);// person3===>Person5(name=ee)
+
+        //ps： TODO: p0(引用)，p2(引用)，p3(引用)都执行一个对象：园p0所指的对象
     }
 }

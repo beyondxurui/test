@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * 功能：重写equals和hashCode
  * 创建时间：2020年03月05日
- * 文件名称：Person
+ * 文件名称：Person5
  * 版本：1.0.0
  * 最后修改时间：2020/3/5 18:38
  *
@@ -38,7 +38,7 @@ public class Person3 {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Person5{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
