@@ -31,9 +31,22 @@ public class LinkedHashMapTest {
         //ps(1):上面总结看源码
 
         //问题
-        //(1):对象区别怎么看？=====> TODO: 识符有继承或者实现关系  定义（属性和方法（特别是构造））
-        //TODO:（2）transfer方法? （3）以及HashMap种的transfer方法 ?   （4）RUL算法？LRU结构？（recordAccess方法）   （5）LinkedHashMap 有序性原理分析部分源码 Entry<K,V> nextEntry()
+        //(1):怎么比较对象？=====> TODO: 识符有继承或者实现关系  定义（属性和方法（特别是构造））
+        //TODO（2）transfer方法? （3）以及HashMap的transfer方法 ?   （4）RUL算法？LRU结构？（recordAccess方法） 实现了解   （5）LinkedHashMap 有序性原理分析部分源码 Entry<K,V> nextEntry()
         //ps  TODO:源码部分问题，等到看jdk1.8的时候走debug看
 
+        //冲哈希问题
+        //void transfer(HashMap.Entry[] newTable) {
+        //        int newCapacity = newTable.length;
+        //        // 与HashMap相比，借助于双向链表的特点进行重哈希使得代码更加简洁
+        //        for (Entry<K,V> e = header.after; e != header; e = e.after) {//TODO:header.after一个节点（见图，有点绕：桶是Entry（就是链表：由节点组成））（Entry（链表））
+        //            int index = indexFor(e.hash, newCapacity);   // 计算每个Entry所在的桶
+        //            // 将其链入桶中的链表
+        //            e.next = newTable[index];//TODO:同HashMap注释
+        //            newTable[index] = e;
+        //        }
+        //    }
+        //ps TODO:重写了HashMap的冲哈希，区别就是  HashMap桶（Entry:链表（由节点组成））没有把桶中节点连接起来
+        //TODO:总之：面向对象还是不行   虽然叫桶：由链表组成（是一个节点），但其实还是节点
     }
 }
