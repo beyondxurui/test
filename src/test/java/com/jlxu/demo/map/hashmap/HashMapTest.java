@@ -61,7 +61,7 @@ public class HashMapTest {
         //                    // e.hash指的是 hash(key.hashCode())的返回值;
         //                    // 计算在newTable中的位置，注意原来在同一条子链上的元素可能被分配到不同的子链
         //                    int i = indexFor(e.hash, newCapacity);//确定新桶
-        //                    e.next = newTable[i];TODO：节点指向新桶中的那个节点（新加的节点指向连头？）
+        //                    e.next = newTable[i];TODO：从第一个理解就行了（newTable[i]是个新桶 为null ，结合下面一行代码，放入第一节点，因为都是从头方节点，所以放入的节点的下一个节点应该为null，后面依次类推（注意放的都是头部））
         //                    newTable[i] = e;直接把节点放到桶中
         //                    e = next;//赋值下个节点
         //                } while (e != null);
