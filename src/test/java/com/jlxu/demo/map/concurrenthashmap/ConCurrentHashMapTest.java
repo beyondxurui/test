@@ -43,5 +43,6 @@ public class ConCurrentHashMapTest {
         //(9)rehash TODO: 三个方面看源码桶中的头节点（这个不一定对），非头节点，jdk优化了一定效率  具体看源码
         //(10)跨段处理（TODO:个人感觉不是安全时安全，不是十分的同步，因为统计结束还是执行了代码，可能不了解RETRIES_BEFORE_LOCK有关系吧）  重试中的 k < RETRIES_BEFORE_LOCK
         //（11） 图
+        //（12）在理想状态下，ConcurrentHashMap 可以支持 16 个线程执行并发写操作（如果并发级别设为16），及任意数量线程的读操作。
     }
 }
