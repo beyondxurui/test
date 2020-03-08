@@ -41,6 +41,9 @@ public class ListTest {
         //（2）fail-fast机制：遍历时候 结构被改变（代码造成的是一个bug）
         //（3）如果可预知数据量的多少，可在构造ArrayList时指定其容量  （如防疫的统计接口）
         //了解transient和native关键字
+
+        //补充
+        //（1） 扩容时机 如添加的时候 通过size+1确定是否要扩容，需要就判断正常时1.5
     }
 
     @Test
