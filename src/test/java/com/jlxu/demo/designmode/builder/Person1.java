@@ -18,6 +18,7 @@ public class Person1 {
     //    private final String name;
 //    private final Integer age;
 //    private final String address;  //No fields without setter were found  TODO:final不能用setter方法初始化
+    //TODO：补充 final修饰的字段是不能使用setter方法（违背final方法的意愿，不可变对象）
     private String name;
     private Integer age;
     private String address;

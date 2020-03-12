@@ -23,6 +23,7 @@ public class Person {
         this.age = builder.age;
         this.address = builder.address;
     }
+
     @ToString
     static class Builder {
         private final String name;
@@ -41,7 +42,21 @@ public class Person {
 
         //不能少
         public Person builder() {
-            return new Person(this);
+            //TODO:我们是对Person对象进行参数检查，而不是对Builder对象进行参数检查
+            //(1)对Person对象进行参数检查
+            Person person = new Person(this);
+            if (!"boy".equals(person.name)) {
+                throw new IllegalArgumentException("所注册用户必须为jlxu！");
+            } else {
+                return person;
+            }
+            //(2)对Builder对象进行参数检查
+//            Person person = new Person(this);// 通过Builder构建所需Person对象，并且每次都产生新的Person对象
+//            if (!"boy".equals(this.name)) {
+//                throw new IllegalArgumentException("所注册用户必须为jlxu");
+//            } else {
+//                return person;
+//            }
         }
     }
 
