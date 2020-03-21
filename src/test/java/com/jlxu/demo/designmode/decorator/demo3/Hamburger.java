@@ -12,12 +12,12 @@ package com.jlxu.demo.designmode.decorator.demo3;
 public abstract class Hamburger {
 
     //    private String name;
-    protected String name;//用protected  子类重写（补重写不报错）
+    protected String name;//用protected  子类重写（不重写不报错）
 
     public String getName() {
         return name;
     }
 
-    public abstract Double getPrice();//抽象中要有抽象方法
+    public abstract Double getPrice();//抽象类中要有抽象方法
 
 }

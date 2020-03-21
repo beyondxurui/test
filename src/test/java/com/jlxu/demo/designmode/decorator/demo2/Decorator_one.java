@@ -28,7 +28,7 @@ public class Decorator_one extends Decorator {
 
     @Override
     public void wearClothes() {
-        log.info("Chili super ===> {}", super.toString());//com.jlxu.demo.designmode.decorator.demo2.Chili@6035b93b
+        log.info("Chili super ===> {}", super.toString());//com.jlxu.demo.designmode.decorator.demo2.Decorator_one@49049a04
         super.wearClothes();
         goClothespress();
     }

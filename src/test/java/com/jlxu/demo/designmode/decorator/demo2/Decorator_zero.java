@@ -28,7 +28,7 @@ public class Decorator_zero extends Decorator {
 
     @Override
     public void wearClothes() {
-        log.info("Lettuce super ===> {}", super.toString());//com.jlxu.demo.designmode.decorator.demo2.Lettuce@320de594
+        log.info("Lettuce super ===> {}", super.toString());//com.jlxu.demo.designmode.decorator.demo2.Decorator_zero@71a8adcf
         super.wearClothes();
         goHome();
     }

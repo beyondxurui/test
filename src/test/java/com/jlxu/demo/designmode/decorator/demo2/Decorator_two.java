@@ -28,7 +28,7 @@ public class Decorator_two extends Decorator {
 
     @Override
     public void wearClothes() {
-        log.info("Condiment_two super ===> {}", super.toString());//com.jlxu.demo.designmode.decorator.demo2.Condiment_two@7516e4e5
+        log.info("Condiment_two super ===> {}", super.toString());//com.jlxu.demo.designmode.decorator.demo2.Decorator_two@3cebbb30
         super.wearClothes();
         findClothes();
     }
