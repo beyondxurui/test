@@ -1,4 +1,4 @@
-package com.jlxu.demo.thread.tomcatrequest.webServer.poorDesign;
+package com.jlxu.demo.thread.pool.tomcatrequest.poorDesign;
 
 import java.io.IOException;
 import java.net.ServerSocket;

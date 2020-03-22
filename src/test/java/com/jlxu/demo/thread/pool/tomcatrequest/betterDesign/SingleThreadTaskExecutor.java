@@ -1,4 +1,4 @@
-package com.jlxu.demo.thread.tomcatrequest.betterDesign;
+package com.jlxu.demo.thread.pool.tomcatrequest.betterDesign;
 
 import java.util.concurrent.Executor;
 

@@ -1,9 +1,6 @@
-package com.jlxu.demo.thread.tomcatrequest.webServer.poorDesign;
+package com.jlxu.demo.thread.pool.tomcatrequest.poorDesign;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 import java.net.ServerSocket;

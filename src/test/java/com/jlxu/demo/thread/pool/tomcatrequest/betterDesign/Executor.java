@@ -1,4 +1,4 @@
-//package com.jlxu.demo.thread.tomcatrequest.betterDesign;
+package com.jlxu.demo.thread.pool.tomcatrequest.betterDesign;//package com.jlxu.demo.thread.tomcatrequest.betterDesign;
 //
 ///**
 // * 功能 : 任务接口

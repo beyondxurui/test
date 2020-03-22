@@ -1,4 +1,4 @@
-package com.jlxu.demo.thread.tomcatrequest.betterDesign;
+package com.jlxu.demo.thread.pool.tomcatrequest.betterDesign;
 
 import lombok.extern.slf4j.Slf4j;
 
