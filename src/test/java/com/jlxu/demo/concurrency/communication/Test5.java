@@ -125,7 +125,7 @@ class MyStack {
             returnValue = "" + list.get(0);
             list.remove(0);
             log.info("线程 " + Thread.currentThread().getName()
-                    + " 生产了，队列已空...");
+                    + " 消费了，队列已空...");
             this.notifyAll();  //防止消费者仅通知消费者
         } catch (InterruptedException e) {
             e.printStackTrace();
