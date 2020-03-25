@@ -24,7 +24,7 @@ public class BlockQueueTest {
         //ps:回顾线程之间通信的栗子就行了
         //2）源码分析（自己）
         //3）阻塞队列和非阻塞队列的具体方法比较   TODO:
-        //TODO：添加和移除的具体方法有些细节未处理
+        //TODO：添加和移除的具体方法有些细节未处理,一般情况下，从队头取数据，从队尾存数据
         //4）阻塞队列的实现原理
         //ReentrantLock 回顾  lockInterruptibly 含义？ 获取锁，能响应中断   意义/为什么要用？  注意哪些？
         //Entry 和 Node的区别  TODO
