@@ -32,9 +32,9 @@ public class FactoryTest {
     //实现：
     //一、引言（工业革命）
     //二、分类
-    //1）简单工厂模式（Simple Factory）
-    //2）工厂方法模式（Factory Method）
-    //3）抽象工厂模式（Abstract Factory）     GOF在《设计模式》将简单工厂模式（Simple Factory）看为工厂方法模式的一种特例，两者归为一类。
+    //1）简单工厂模式（Simple ExecutorFactory）
+    //2）工厂方法模式（ExecutorFactory Method）
+    //3）抽象工厂模式（Abstract ExecutorFactory）     GOF在《设计模式》将简单工厂模式（Simple ExecutorFactory）看为工厂方法模式的一种特例，两者归为一类。
     //三、区别
     //工厂方法模式：
     //一个抽象产品类，可以派生出多个具体产品类。

@@ -61,38 +61,5 @@ public class ExecutorTest {
         //1. 通过执行Callable任务的call方法；
         //2. 如果call执行成功，则通过set方法保存结果；
         //3. 如果call执行有异常，则通过setException保存异常；
-
-        //配置线程池需要考虑哪些因素  TODO:
-        //从任务的优先级，任务的执行时间长短，任务的性质（CPU密集/ IO密集），任务的依赖关系这四个角度来分析。并且近可能地使用有界的工作队列。
-        //性质不同的任务可用使用不同规模的线程池分开处理：
-        //- CPU密集型：尽可能少的线程，Ncpu+1
-        //- IO密集型：尽可能多的线程, Ncpu*2，比如数据库连接池
-        //- 混合型：CPU密集型的任务与IO密集型任务的执行时间差别较小，拆分为两个线程池；否则没有必要拆分。
-        //参考
-        //线程池大小（出时容量？，参考三中说的出时容量）
-        //https://www.cnblogs.com/yueruijie/p/11357938.html 参考二 参考一在博文中
-        //https://blog.csdn.net/weixin_39683776/article/details/94008730 参考三
-        //线程池原理之初始化大小设置问题（暂时了解，别跑偏了）
-        //https://blog.csdn.net/weixin_39683776/article/details/94008730
-        //计算密集型任务和IO密集型任务的区别  （了解）
-        //https://blog.csdn.net/u012611644/article/details/80158578
-
-        //6. 如何监控线程池的状态
-        //可以使用ThreadPoolExecutor以下方法：
-        //getTaskCount() Returns the approximate total number of tasks that have ever been scheduled for execution.
-        //getCompletedTaskCount() Returns the approximate total number of tasks that have completed execution. 返回结果少于getTaskCount()。
-        //getLargestPoolSize() Returns the largest number of threads that have ever simultaneously been in the pool. 返回结果小于等于maximumPoolSize
-        //getPoolSize() Returns the current number of threads in the pool.
-        //getActiveCount()  Returns the approximate number of threads that are actively executing tasks.
-
-
-        //Reference
-        //https://www.jianshu.com/p/87bff5cc8d8c  占小狼   哈哈
-
-        //ps
-        //1）基于JVM 的cas(乐观锁)的AtomicInteger   后续
-        //2）非原子操作的二次检查
-        //3）运算符
-        //4），，，
     }
 }
