@@ -46,7 +46,7 @@ public class Memoizer2<A, V> implements Computable<A, V> {
                 //如果有两个都是计算userID=1的线程，同时调用put方法，那么返回的结果都不会为null，后面还是会创建两个任务去计算相同的值。
                 //而putIfAbsent，当map里面已经有对应的值了，则会返回已有的值，否则，会返回null，这样就可以解决相同的值计算两次的问题。
                 future = cache.putIfAbsent(arg, ft);
-                if (future == null) {
+                if (future == null) {  //TODO： 如何没有获得执行结果（这里没有用线程池，没有调用执行方法所有需要这段代码，手动执行任务中的compute方法）
                     future = ft;
                     ft.run();
                 }
