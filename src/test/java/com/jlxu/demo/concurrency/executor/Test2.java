@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.*;
 
 /**
- * 功能: 使用Callable+Future获取执行结果
+ * 功能: 使用Callable+FutureTask获取执行结果
  * 创建时间：2020年03月15日
  * 文件名称：Test
  * 版本：1.0.0
