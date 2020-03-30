@@ -19,6 +19,7 @@ import java.util.concurrent.Executors;
 @RunWith(SpringRunner.class)
 @Slf4j
 public class InnerClassEffectTest {
+
     //内部类可以很好的实现隐藏测试
     @Test
     public void test1() {
@@ -123,9 +124,13 @@ public class InnerClassEffectTest {
         //2、final 参数
         //对于final参数，若是将引用类型参数声明为final，我们无法在方法中更改参数引用所指向的对象；
         // 若是将基本类型参数声明为final，我们可以读参数，但却无法修改参数（这一特性主要用来向局部内部类和匿名内部类传递数据）。
+        //TODO:案例说明，案例的使用的jdk可能不是jdk1.8，jdk1.8
+        // 以前java的匿名内部类在访问外部变量的时候，外部变量必须用final修饰。Bingo，java8对这个限制做了优化，外部变量可以不用显式使用final修饰，但编译器会自动把它当成final来处理。
+        // 同理，对于匿名内部类使用外部类参数时同样适用
+
     }
 
-    //五. 匿名内部类
+    //五. 匿名内部类  TODO：匿名内部类的位子===>一般是外部类的方法内  ，可以说匿名内部类是局部内部类，因为匿名内部类没有名字
     @Test
     public void test8() {
         //匿名内部类是没有访问修饰符的；
@@ -144,6 +149,42 @@ public class InnerClassEffectTest {
 
         //若匿名内部类 (匿名内部类没有构造方法) 需要直接使用其所在的外部类方法的参数时，该形参必须为 final 的；
         //如果匿名内部类没有直接使用其所在的外部类方法的参数时，那么该参数就不必为final
+
+        //jdk1.8之前内部类直接使用外部类的为什么要加final？  注意，jdk1.8做了优化，见上面的TODO
+        //  TODO:内部类被编译的时候会生成一个单独的内部类的.class文件，这个文件并不与外部类在同一class文件中
+        // 具体分析如下
+        //  1）从java程序的角度来看是直接的调用，例如：
+        //public void dosome(final String a,final int b){
+        //  class Dosome{
+        //       public void dosome(){
+        //            System.out.println(a+b)
+        //       }
+        //  };
+        //
+        //  Dosome some=new Dosome();
+        //  some.dosome();
+        //} 12345678910
+        //
+        //　2）从代码来看，好像是内部类直接调用的a参数和b参数，但是实际上不是，在java编译器编译以后实际的操作代码是:
+        //class Outer$Dosome{
+        //  public Dosome(final String a,final int b){
+        //      this.Dosome$a=a;
+        //      this.Dosome$b=b;
+        //  }
+        //  public void dosome(){
+        //      System.out.println(this.Dosome$a+this.Dosome$b);
+        //  }
+        //}123456789
+        //
+        //　TODO:从以上代码来看，内部类并不是直接调用方法传进来的参数，
+        // 而是内部类将传进来的参数通过自己的构造器备份到了自己的内部，
+        // 自己内部的方法调用的实际是自己的属性而不是外部类方法的参数。
+        // 这样就很容易理解为什么要用final了，因为两者从外表看起来是同一个东西，
+        // 实际上却不是这样，如果内部类改掉了这些参数的值也不可能影响到原参数，
+        // 然而这样却失去了参数的一致性，因为从编程人员的角度来看他们是同一个东西，
+        // 如果编程人员在程序设计的时候在内部类中改掉参数的值，
+        // 但是外部调用的时候又发现值其实没有被改掉，这就让人非常的难以理解和接受，
+        // 为了避免这种尴尬的问题存在，所以编译器设计人员把内部类能够使用的参数设定为必须是final来规避这种莫名其妙错误的存在。
 
     }
 

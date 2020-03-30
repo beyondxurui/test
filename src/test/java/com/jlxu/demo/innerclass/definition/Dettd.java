@@ -8,7 +8,7 @@ package com.jlxu.demo.innerclass.definition;
  * 版本：1.0.0
  * 最后修改时间：2020/3/5 23:12
  *
- * @auther ${许金李}
+ * @auther jlxu
  */
 //2、如果java源文件不包含public类(public接口)，则java源文件名没有限制。
  class Dettd {

@@ -14,10 +14,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Example2 {
     private String name = "hello";
+    private Integer i = 1;//默认是final的
 
     private class Inner {
         public Inner() {// //TODO:构造获取  如果是自己可能会写方法
             log.info(name);
+//            log.info(i+1); //Error ：Cannot resolve method 'info(int)'
         }
     }
 
