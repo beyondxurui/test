@@ -176,6 +176,7 @@ public class StreamTest {
         // 第二次执行时，第一个参数为第一次函数执行的结果，第二个参数为流中的第三个元素；依次类推。
 
         //并行流的概念和Fork/Join TODO:后续看下
+        //http://www.cocoachina.com/articles/30678#ForkJoin_681
         //https://www.jdon.com/performance/threadpool-forkjoin.html
         //https://blog.csdn.net/u014507083/article/details/70571502
         //https://www.jianshu.com/p/f777abb7b251
